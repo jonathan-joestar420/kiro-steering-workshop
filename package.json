@@ -1,0 +1,15 @@
+{
+  "name": "kiro-steering-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kiro 團隊開發範本：共用 Steering、Hooks 與 GitHub Code Scan",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node scripts/check.mjs"
+  },
+  "license": "MIT"
+}

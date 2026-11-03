@@ -1,0 +1,23 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "push-on-stop",
+      "description": "Agent 完成一輪回覆後，詢問是否將功能分支推上 GitHub；推送後由 GitHub Actions 執行測試與 CodeQL。",
+      "trigger": "Stop",
+      "action": {
+        "type": "command",
+        "command": "node scripts/push-branch.mjs"
+      },
+      "confirm": {
+        "question": "要把目前的功能分支推上 GitHub，交給 CI 與 Code Scan 檢查嗎？",
+        "options": [
+          { "id": "push", "label": "推上 GitHub", "run": true },
+          { "id": "skip", "label": "先不要", "run": false }
+        ]
+      },
+      "timeout": 120,
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "test-on-save",
+      "description": "Agent 修改 src 或 test 的 .mjs 檔後，自動執行公司檢查（測試與規範檢查）。",
+      "trigger": "PostFileSave",
+      "matcher": "(^|/)(src|test)/.*\\.mjs$",
+      "action": {
+        "type": "command",
+        "command": "npm run check --silent"
+      },
+      "timeout": 60,
+      "enabled": true
+    }
+  ]
+}

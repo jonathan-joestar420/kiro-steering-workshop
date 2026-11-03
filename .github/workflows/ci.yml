@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      # 與本機 Kiro Hook 執行同一支檢查：測試 + 秘密掃描。
+      # 若公司有自己的 Code Scan 工具（例如 SonarQube、Checkmarx），在此新增步驟。
+      - run: npm run check
